@@ -10,17 +10,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        /* ======== ESTILOS GENERALES ======== */
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f6f8;
-            /* Gris claro */
-            color: #1e3a5f;
-            /* Azul oscuro */
+        @font-face {
+            font-family: 'ZenSerif';
+            src: url('/fonts/ZEN-SERIF-TTF-Regular.ttf') format('truetype');
         }
 
+        /* === ESTILO GENERAL BLANCO Y GRIS === */
+        body {
+            font-family: 'ZenSerif', Verdana, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            color: #000000;
+        }
 
+        /* ======== TITULOS ======== */
         h1,
         h2,
         h3 {
@@ -32,7 +36,7 @@
 
         p {
             text-align: center;
-            color: #f7f4f4;
+            color: #000000;
             line-height: 1.6;
         }
 
@@ -47,11 +51,16 @@
             color: #1e3a5f;
             font-weight: 500;
             text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: 0.3s ease;
         }
 
-        nav a:hover {
-            color: #3b6ea8;
+        .navbar .nav-link:hover {
+            background-color: transparent !important;
+            color: #006eff9c !important;
         }
+
 
         /* ======== SECCIÓN PORTADA ======== */
         .hero {
@@ -65,6 +74,7 @@
             overflow: hidden;
         }
 
+        /* Filtro azulito */
         .hero::after {
             content: "";
             position: absolute;
@@ -73,7 +83,8 @@
             width: 100%;
             height: 100%;
             border-radius: 20px;
-            background: rgba(0, 0, 0, 0.45);
+            background: linear-gradient(rgb(243, 242, 242),
+                    rgba(0, 70, 150, 0.45));
             z-index: 1;
         }
 
@@ -83,9 +94,13 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            color: #0c0c0c;
+            color: #ffffff !important;
             z-index: 2;
             text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content p {
+            color: #ffffff !important;
         }
 
         /* ======== SECCIONES MISION, VISION, VALORES ======== */
@@ -107,18 +122,34 @@
             border-radius: 4px;
         }
 
+        /* === Tarjetas (info-box) con hover === */
         .info-box {
             max-width: 900px;
             margin: auto;
-            background: #fff;
             border-radius: 18px;
             padding: 25px;
+            background: #ffffff;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
         }
 
+        /* Movimiento suave */
+        .info-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 18px rgba(0, 0, 80, 0.15);
+        }
+
+        /* === Imagenes con borde difuminado (glow azul) === */
         .info-box img {
             width: 100%;
             border-radius: 15px;
+            transition: 0.4s ease;
+            box-shadow: 0 0 12px rgba(30, 90, 150, 0.4);
+        }
+
+        .info-box img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 22px rgba(30, 90, 150, 0.8);
         }
 
         /* ======== VALORES ======== */
@@ -126,25 +157,6 @@
             list-style: none;
             margin: 8px 0;
             font-size: 1.1rem;
-        }
-
-        /* ======== CARDS DE SERVICIOS / EVENTOS ======== */
-        .section-card {
-            background: white;
-            padding: 35px;
-            margin-top: 40px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-            cursor: pointer;
-        }
-
-        .img-box {
-            width: 100%;
-            height: 150px;
-            background: #fff;
-            border-radius: 15px;
-            margin-top: 15px;
         }
     </style>
 </head>
@@ -162,10 +174,9 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#mision">Misión</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#eventos">Eventos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/index/home">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/index/servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/index/eventos">Eventos</a></li>
                 </ul>
             </div>
         </div>
@@ -226,40 +237,28 @@
         </div>
 
         <!-- SERVICIOS -->
-
         <h2 class="section-title" id="servicios">Servicios</h2>
-
         <div class="info-box">
             <div class="row g-3 flex-row-reverse">
-
-                <!-- Imagen -->
                 <div class="col-md-6">
-                    <img src="/img/servicios.png" alt="Servicios">
+                    <img src="/img/servicios.jpg" alt="Servicios">
                 </div>
-
-                <!-- Texto -->
                 <div class="col-md-6 d-flex align-items-center">
                     <p>
                         Ofrecemos programas de entrenamiento, clases personalizadas y formación
                         deportiva para todas las edades, adaptados a cada nivel y objetivo.
                     </p>
                 </div>
-
             </div>
         </div>
 
         <!-- EVENTOS -->
         <h2 class="section-title" id="eventos">Eventos</h2>
-
         <div class="info-box">
             <div class="row g-3">
-
-                <!-- Imagen -->
                 <div class="col-md-6">
-                    <img src="/img/eventos.png" alt="Eventos">
+                    <img src="/img/eventos.jpg" alt="Eventos">
                 </div>
-
-                <!-- Texto -->
                 <div class="col-md-6 d-flex align-items-center">
                     <p>
                         Participa en nuestros eventos deportivos, encuentros y actividades
@@ -267,10 +266,8 @@
                         integración familiar.
                     </p>
                 </div>
-
             </div>
         </div>
-
 
     </div>
 
