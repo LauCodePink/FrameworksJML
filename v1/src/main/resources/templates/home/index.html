@@ -56,11 +56,25 @@
             transition: 0.3s ease;
         }
 
-        .navbar .nav-link:hover {
+        .navbar .nav-link:hover,
+        .navbar .dropdown-item:hover {
             background-color: transparent !important;
             color: #006eff9c !important;
         }
 
+        .dropdown-menu {
+            background-color: #ffffff;
+            border: 1px solid rgba(30, 58, 95, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-item {
+            color: #1e3a5f !important;
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin: 4px 8px;
+        }
 
         /* ======== SECCIÓN PORTADA ======== */
         .hero {
@@ -163,25 +177,71 @@
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR ACTUALIZADA -->
     <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Escuela de Patinaje</a>
+    <div class="container-fluid">
+        <!-- Logo o nombre de la escuela -->
+        <a class="navbar-brand" th:href="@{/}">Escuela de Patinaje</a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <!-- Botón del menú hamburguesa (móvil) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/index/home">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/index/servicios">Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/index/eventos">Eventos</a></li>
-                </ul>
-            </div>
+        <!-- Menú de navegación -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+               
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index/home}">Inicio</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index/servicios}">Servicios</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/index/eventos}">Eventos</a>
+                </li>
+
+                <!-- Menú desplegable: Corporativo -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Corporativo
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" th:href="@{#mision}">Misión</a></li>
+                        <li><a class="dropdown-item" th:href="@{#vision}">Visión</a></li>
+                        <li><a class="dropdown-item" th:href="@{#valores}">Valores</a></li>
+                    </ul>
+                </li>
+
+                <!-- Menú desplegable: Registro -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Registro
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" th:href="@{/index/estudiantes}">Inscripción de Estudiantes</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/instructores}">Inscripción de Instructor</a></li>
+                    </ul>
+                </li>
+
+                <!-- Menú desplegable: Clases -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Clases
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" th:href="@{/index/clases/estudiantes}">Estudiantes</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/clases/instructores}">Instructor</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/clases/calendario}">Calendario de Clases</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </nav>
-
+    </div>
+</nav>
     <!-- PORTADA -->
     <section id="inicio" class="hero">
         <div class="hero-content">

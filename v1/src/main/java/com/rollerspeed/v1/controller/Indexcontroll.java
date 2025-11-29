@@ -20,4 +20,12 @@ public class Indexcontroll {
     public String eventos() {
         return "home/eventos";
     }
+    @RequestMapping("/estudiantes")
+    public String estudiantes() {
+        return "home/estudiantes";
+    }
+    @RequestMapping("/instructores")
+    public String instructores() {
+        return "home/instructores";
+    }
 }

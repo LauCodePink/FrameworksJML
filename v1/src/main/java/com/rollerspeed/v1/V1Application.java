@@ -10,5 +10,5 @@ public class V1Application {
 		SpringApplication.run(V1Application.class, args);
 		System.out.println("Aplicación V1 iniciada correctamente.");
 	}
-
+    
 }
