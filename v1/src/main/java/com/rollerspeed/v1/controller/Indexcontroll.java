@@ -28,4 +28,8 @@ public class Indexcontroll {
     public String instructores() {
         return "home/instructores";
     }
+    @RequestMapping("/clases")
+    public String clases () {
+        return "home/clases";
+    }
 }
