@@ -37,5 +37,10 @@ public class Indexcontroll {
     public String calendarioclases (){
         return "home/calendarioclases"; 
     }
+
+     @RequestMapping("/listadoestudiantes")
+    public String  listadoestudiantes (){
+        return "home/listadoestudiantes"; 
+    }
     
 }
