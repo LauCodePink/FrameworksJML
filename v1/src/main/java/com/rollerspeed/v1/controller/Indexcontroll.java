@@ -32,4 +32,10 @@ public class Indexcontroll {
     public String clases () {
         return "home/clases";
     }
+
+    @RequestMapping("/calendarioclases")
+    public String calendarioclases (){
+        return "home/calendarioclases"; 
+    }
+    
 }

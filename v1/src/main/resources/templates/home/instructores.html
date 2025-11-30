@@ -134,7 +134,7 @@
 <body>
 
     <!-- NAVBAR ACTUALIZADA (igual que en las otras páginas) -->
-    <nav class="navbar navbar-expand-lg">
+    <<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <!-- Logo o nombre de la escuela -->
         <a class="navbar-brand" th:href="@{/}">Escuela de Patinaje</a>
@@ -147,17 +147,15 @@
         <!-- Menú de navegación -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <!-- Inicio -->
+               
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/index/home}">Inicio</a>
                 </li>
 
-                <!-- Servicios -->
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/index/servicios}">Servicios</a>
                 </li>
 
-                <!-- Eventos -->
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/index/eventos}">Eventos</a>
                 </li>
@@ -182,6 +180,8 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" th:href="@{/index/estudiantes}">Inscripción de Estudiantes</a></li>
                         <li><a class="dropdown-item" th:href="@{/index/instructores}">Inscripción de Instructor</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/clases}">Registro de Clases</a></li>
+
                     </ul>
                 </li>
 
@@ -193,7 +193,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" th:href="@{/index/clases/estudiantes}">Estudiantes</a></li>
                         <li><a class="dropdown-item" th:href="@{/index/clases/instructores}">Instructor</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/clases/calendario}">Calendario de Clases</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/calendarioclases}">Calendario de Clases</a></li>
                     </ul>
                 </li>
             </ul>
