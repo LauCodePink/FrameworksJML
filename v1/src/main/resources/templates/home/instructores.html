@@ -134,7 +134,7 @@
 <body>
 
     <!-- NAVBAR ACTUALIZADA (igual que en las otras páginas) -->
-     <nav class="navbar navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <!-- Logo o nombre de la escuela -->
         <a class="navbar-brand" th:href="@{/}">Escuela de Patinaje</a>
@@ -166,9 +166,9 @@
                         Corporativo
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{#mision}">Misión</a></li>
-                        <li><a class="dropdown-item" th:href="@{#vision}">Visión</a></li>
-                        <li><a class="dropdown-item" th:href="@{#valores}">Valores</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/home#mision}">Misión</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/home#vision}">Visión</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/home#valores}">Valores</a></li>
                     </ul>
                 </li>
 
@@ -191,8 +191,8 @@
                         Clases
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/index/clases/estudiantes}">Estudiantes</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/clases/instructores}">Instructor</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/listadoestudiantes}">Estudiantes</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/listadoinstructores}">Instructor</a></li>
                         <li><a class="dropdown-item" th:href="@{/index/calendarioclases}">Calendario de Clases</a></li>
                     </ul>
                 </li>
@@ -200,7 +200,6 @@
         </div>
     </div>
 </nav>
-
     <!-- HEADER -->
     <header>
         <h1>Inscripción de Instructores</h1>
@@ -253,7 +252,9 @@
                         <option value="velocidad">Patinaje de Velocidad</option>
                         <option value="freestyle">Freestyle / Slalom</option>
                         <option value="hockey">Hockey sobre Ruedas</option>
+                        <option value="hockey">Patinaje sobre hielo</option>
                         <option value="recreativo">Clases Recreativas</option>
+                        
                     </select>
                 </div>
 

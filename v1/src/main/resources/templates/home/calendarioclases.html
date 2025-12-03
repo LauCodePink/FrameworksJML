@@ -136,7 +136,7 @@
 <body>
 
     <!-- NAVBAR -->
-   <nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <!-- Logo o nombre de la escuela -->
         <a class="navbar-brand" th:href="@{/}">Escuela de Patinaje</a>
@@ -168,9 +168,9 @@
                         Corporativo
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{#mision}">Misión</a></li>
-                        <li><a class="dropdown-item" th:href="@{#vision}">Visión</a></li>
-                        <li><a class="dropdown-item" th:href="@{#valores}">Valores</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/home#mision}">Misión</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/home#vision}">Visión</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/home#valores}">Valores</a></li>
                     </ul>
                 </li>
 
@@ -193,8 +193,8 @@
                         Clases
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/index/clases/estudiantes}">Estudiantes</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/clases/instructores}">Instructor</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/listadoestudiantes}">Estudiantes</a></li>
+                        <li><a class="dropdown-item" th:href="@{/index/listadoinstructores}">Instructor</a></li>
                         <li><a class="dropdown-item" th:href="@{/index/calendarioclases}">Calendario de Clases</a></li>
                     </ul>
                 </li>
