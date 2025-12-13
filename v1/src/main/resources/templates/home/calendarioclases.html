@@ -1,20 +1,16 @@
 <!DOCTYPE html>
-
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clases - Escuela de Patinaje</title>
-
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <style>
-        /* Fuente personalizada */
         @font-face {
             font-family: 'ZenSerif';
             src: url('/fonts/ZEN-SERIF-TTF-Regular.ttf') format('truetype');
         }
-
         body {
             font-family: 'ZenSerif', Verdana, sans-serif;
             background: #f5f7fa;
@@ -22,14 +18,12 @@
             padding: 0;
             color: #000000;
         }
-
         /* NAVBAR — BLANCO Y GRIS */
         nav {
             background-color: #fcfafa;
             padding: 15px 30px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
         nav a {
             color: #1e3a5f;
             font-weight: 500;
@@ -38,20 +32,17 @@
             border-radius: 8px;
             transition: 0.3s ease;
         }
-
         .navbar .nav-link:hover,
         .navbar .dropdown-item:hover {
             background-color: transparent !important;
             color: #006eff9c !important;
         }
-
         .dropdown-menu {
             background-color: #ffffff;
             border: 1px solid rgba(30, 58, 95, 0.1);
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-
         /* HEADER */
         header {
             background: #ffffff;
@@ -59,27 +50,23 @@
             text-align: center;
             border-bottom: 1px solid #eaeaea;
         }
-
         header h1 {
             margin: 0;
             font-size: 2.4rem;
             color: #333;
         }
-
         /* CONTENEDOR PRINCIPAL */
         .horario-container {
             max-width: 950px;
             margin: 40px auto;
             padding: 0 15px;
         }
-
         .horario-container h2 {
             text-align: center;
             color: #1e3a5f;
             margin-bottom: 25px;
             font-size: 1.8rem;
         }
-
         /* TABLA DE HORARIO */
         .horario-table {
             width: 100%;
@@ -88,39 +75,32 @@
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
         }
-
         .horario-table th,
         .horario-table td {
             padding: 16px 12px;
             text-align: center;
             border-bottom: 1px solid #eee;
         }
-
         .horario-table th {
             background-color: #f0f4fc;
             color: #1e3a5f;
             font-weight: 700;
         }
-
         .horario-table tr:last-child td {
             border-bottom: none;
         }
-
         .nivel-iniciante {
             background-color: #e6f0ff;
             border-left: 4px solid #4a90e2;
         }
-
         .nivel-intermedio {
             background-color: #e6f7ee;
             border-left: 4px solid #34a853;
         }
-
         .nivel-avanzado {
             background-color: #fff0e6;
             border-left: 4px solid #f9ab00;
         }
-
         @media (max-width: 768px) {
             .horario-table {
                 font-size: 0.9rem;
@@ -130,78 +110,58 @@
                 padding: 10px 6px;
             }
         }
+        .btn-edit {
+            font-size: 0.85rem;
+            padding: 5px 10px;
+        }
+        .btn-delete {
+            font-size: 0.85rem;
+            padding: 5px 10px;
+        }
     </style>
 </head>
-
 <body>
-
     <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-        <!-- Logo o nombre de la escuela -->
-        <a class="navbar-brand" th:href="@{/}">Escuela de Patinaje</a>
-
-        <!-- Botón del menú hamburguesa (móvil) -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Menú de navegación -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-               
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index/home}">Inicio</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index/servicios}">Servicios</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index/eventos}">Eventos</a>
-                </li>
-
-                <!-- Menú desplegable: Corporativo -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Corporativo
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/index/home#mision}">Misión</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/home#vision}">Visión</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/home#valores}">Valores</a></li>
-                    </ul>
-                </li>
-
-                <!-- Menú desplegable: Registro -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Registro
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/index/estudiantes}">Inscripción de Estudiantes</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/instructores}">Inscripción de Instructor</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/clases}">Registro de Clases</a></li>
-
-                    </ul>
-                </li>
-
-                <!-- Menú desplegable: Clases -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Clases
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/index/listadoestudiantes}">Estudiantes</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/listadoinstructores}">Instructor</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/calendarioclases}">Calendario de Clases</a></li>
-                    </ul>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">Escuela de Patinaje</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/index/home}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/index/servicios}">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/index/eventos}">Eventos</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Corporativo</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/index/home#mision}">Misión</a></li>
+                            <li><a class="dropdown-item" th:href="@{/index/home#vision}">Visión</a></li>
+                            <li><a class="dropdown-item" th:href="@{/index/home#valores}">Valores</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Registro</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/index/estudiantes}">Inscripción de Estudiantes</a></li>
+                            <li><a class="dropdown-item" th:href="@{/index/instructores}">Inscripción de Instructor</a></li>
+                            <li><a class="dropdown-item" th:href="@{/index/clases}">Registro de Clases</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Clases</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/index/listadoestudiantes}">Estudiantes</a></li>
+                            <li><a class="dropdown-item" th:href="@{/index/listadoinstructores}">Instructor</a></li>
+                            <li><a class="dropdown-item" th:href="@{/index/calendarioclases}">Calendario de Clases</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+
     <!-- HEADER -->
     <header>
         <h1>Horario de Clases</h1>
@@ -210,7 +170,6 @@
     <!-- CONTENIDO: HORARIO -->
     <section class="horario-container">
         <h2>Calendario Semanal de Clases</h2>
-
         <table class="horario-table">
             <thead>
                 <tr>
@@ -224,36 +183,23 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>16:00 – 17:00</td>
-                    <td class="nivel-iniciante">Iniciantes (Niños)</td>
-                    <td class="nivel-intermedio">Intermedio (Adolescentes)</td>
-                    <td class="nivel-iniciante">Iniciantes (Niños)</td>
-                    <td class="nivel-intermedio">Intermedio (Adolescentes)</td>
-                    <td class="nivel-avanzado">Avanzado (Adultos)</td>
-                    <td class="nivel-iniciante">Iniciantes (Familiar)</td>
-                </tr>
-                <tr>
-                    <td>17:15 – 18:15</td>
-                    <td class="nivel-intermedio">Intermedio (Adultos)</td>
-                    <td class="nivel-avanzado">Técnica Avanzada</td>
-                    <td class="nivel-intermedio">Intermedio (Adultos)</td>
-                    <td class="nivel-avanzado">Técnica Avanzada</td>
-                    <td class="nivel-iniciante">Iniciantes (Adultos)</td>
-                    <td class="nivel-intermedio">Intermedio (Abierto)</td>
-                </tr>
-                <tr>
-                    <td>18:30 – 19:30</td>
-                    <td class="nivel-avanzado">Freestyle & Slalom</td>
-                    <td class="nivel-iniciante">Iniciantes (Adultos)</td>
-                    <td class="nivel-avanzado">Freestyle & Slalom</td>
-                    <td class="nivel-iniciante">Iniciantes (Adultos)</td>
-                    <td class="nivel-intermedio">Velocidad & Resistencia</td>
-                    <td class="nivel-avanzado">Clase Libre (Avanzado)</td>
+                <tr th:each="c : ${clases}">
+                    <td th:text="${c.horaInicio} + ' – ' + ${c.horaFin}"></td>
+                    <td th:class="${c.diaSemana == 'lunes' ? 'nivel-' + c.nivel : ''}"
+                        th:text="${c.diaSemana == 'lunes' ? c.nombreClase + ' (' + c.instructorNombre + ')' : ''}"></td>
+                    <td th:class="${c.diaSemana == 'martes' ? 'nivel-' + c.nivel : ''}"
+                        th:text="${c.diaSemana == 'martes' ? c.nombreClase + ' (' + c.instructorNombre + ')' : ''}"></td>
+                    <td th:class="${c.diaSemana == 'miercoles' ? 'nivel-' + c.nivel : ''}"
+                        th:text="${c.diaSemana == 'miercoles' ? c.nombreClase + ' (' + c.instructorNombre + ')' : ''}"></td>
+                    <td th:class="${c.diaSemana == 'jueves' ? 'nivel-' + c.nivel : ''}"
+                        th:text="${c.diaSemana == 'jueves' ? c.nombreClase + ' (' + c.instructorNombre + ')' : ''}"></td>
+                    <td th:class="${c.diaSemana == 'viernes' ? 'nivel-' + c.nivel : ''}"
+                        th:text="${c.diaSemana == 'viernes' ? c.nombreClase + ' (' + c.instructorNombre + ')' : ''}"></td>
+                    <td th:class="${c.diaSemana == 'sabado' ? 'nivel-' + c.nivel : ''}"
+                        th:text="${c.diaSemana == 'sabado' ? c.nombreClase + ' (' + c.instructorNombre + ')' : ''}"></td>
                 </tr>
             </tbody>
         </table>
-
         <div class="text-center mt-4" style="font-size: 0.95rem; color: #555;">
             <p>📍 Todas las clases se imparten en la <strong>Pista Principal</strong> de la Escuela de Patinaje.</p>
             <p>💡 Se recomienda llegar 10 minutos antes con patines y protección completa.</p>
@@ -263,5 +209,4 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

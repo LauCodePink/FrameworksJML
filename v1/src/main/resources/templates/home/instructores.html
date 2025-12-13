@@ -1,20 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscripción de Instructores - Escuela de Patinaje</title>
-
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <style>
         @font-face {
             font-family: 'ZenSerif';
             src: url('/fonts/ZEN-SERIF-TTF-Regular.ttf') format('truetype');
         }
-
         body {
             font-family: 'ZenSerif', sans-serif !important;
             background: #f4f6f8;
@@ -22,14 +18,12 @@
             padding: 0;
             color: #000000;
         }
-
         /* NAVBAR */
-       nav {
+        nav {
             background-color: #fcfafa;
             padding: 15px 30px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-
         nav a {
             color: #1e3a5f;
             font-weight: 500;
@@ -38,20 +32,17 @@
             border-radius: 8px;
             transition: 0.3s ease;
         }
-
         .navbar .nav-link:hover,
         .navbar .dropdown-item:hover {
             background-color: transparent !important;
             color: #006eff9c !important;
         }
-
         .dropdown-menu {
             background-color: #ffffff;
             border: 1px solid rgba(30, 58, 95, 0.1);
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-
         /* --- HEADER --- */
         header {
             background: #ffffff;
@@ -59,13 +50,11 @@
             text-align: center;
             border-bottom: 1px solid #ddd;
         }
-
         header h1 {
             margin: 0;
             font-size: 2.4rem;
             color: #333;
         }
-
         /* FORMULARIO */
         .form-container {
             background: #ffffff;
@@ -75,36 +64,30 @@
             max-width: 600px;
             margin: 30px auto;
         }
-
         .form-title {
             text-align: center;
             color: #1e3a5f;
             margin-bottom: 25px;
             font-size: 1.8rem;
         }
-
         .form-group {
             margin-bottom: 20px;
         }
-
         .form-label {
             font-weight: 600;
             color: #333;
             margin-bottom: 8px;
         }
-
         .form-control {
             border: 1px solid #ddd;
             padding: 10px 15px;
             border-radius: 8px;
             font-size: 1rem;
         }
-
         .form-control:focus {
             border-color: #1e3a5f;
             box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
         }
-
         .btn-submit {
             background: #1e3a5f;
             color: white;
@@ -118,88 +101,57 @@
             font-size: 1.1rem;
             transition: background 0.3s ease;
         }
-
         .btn-submit:hover {
             background: #3b6ea8;
             color: #ffffff;
         }
-
         .required {
             color: #e74c3c;
         }
     </style>
-
 </head>
-
 <body>
-
-    <!-- NAVBAR ACTUALIZADA (igual que en las otras páginas) -->
-      <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-        <!-- Logo o nombre de la escuela -->
-        <a class="navbar-brand" th:href="@{/}">Escuela de Patinaje</a>
-
-        <!-- Botón del menú hamburguesa (móvil) -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Menú de navegación -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-               
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index/home}">Inicio</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index/servicios}">Servicios</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/index/eventos}">Eventos</a>
-                </li>
-
-                <!-- Menú desplegable: Corporativo -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Corporativo
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/index/home#mision}">Misión</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/home#vision}">Visión</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/home#valores}">Valores</a></li>
-                    </ul>
-                </li>
-
-                <!-- Menú desplegable: Registro -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Registro
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/index/estudiantes}">Inscripción de Estudiantes</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/instructores}">Inscripción de Instructor</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/clases}">Registro de Clases</a></li>
-
-                    </ul>
-                </li>
-
-                <!-- Menú desplegable: Clases -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Clases
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/index/listadoestudiantes}">Estudiantes</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/listadoinstructores}">Instructor</a></li>
-                        <li><a class="dropdown-item" th:href="@{/index/calendarioclases}">Calendario de Clases</a></li>
-                    </ul>
-                </li>
-            </ul>
+    <!-- NAVBAR ACTUALIZADA -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">Escuela de Patinaje</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/index/home}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/index/servicios}">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/index/eventos}">Eventos</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Corporativo</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/index/home#mision}">Misión</a></li>
+                            <li><a class="dropdown-item" th:href="@{/index/home#vision}">Visión</a></li>
+                            <li><a class="dropdown-item" th:href="@{/index/home#valores}">Valores</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Registro</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/index/estudiantes}">Inscripción de Estudiantes</a></li>
+                            <li><a class="dropdown-item" th:href="@{/index/instructores}">Inscripción de Instructor</a></li>
+                            <li><a class="dropdown-item" th:href="@{/index/clases}">Registro de Clases</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Clases</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/index/listadoestudiantes}">Estudiantes</a></li>
+                            <li><a class="dropdown-item" th:href="@{/index/listadoinstructores}">Instructor</a></li>
+                            <li><a class="dropdown-item" th:href="@{/index/calendarioclases}">Calendario de Clases</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+
     <!-- HEADER -->
     <header>
         <h1>Inscripción de Instructores</h1>
@@ -209,87 +161,42 @@
     <div class="container">
         <div class="form-container">
             <h2 class="form-title">Formulario de Solicitud</h2>
-            <form id="instructorForm">
+            <form th:action="@{/index/instructores}" th:object="${instructor}" method="post">
+                <input type="hidden" th:field="*{id}" />
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="form-label">Nombre <span class="required">*</span></label>
-                            <input type="text" class="form-control" id="firstName" required>
+                            <input type="text" th:field="*{nombre}" class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="form-label">Apellidos <span class="required">*</span></label>
-                            <input type="text" class="form-control" id="lastName" required>
+                            <label class="form-label">Correo Electrónico <span class="required">*</span></label>
+                            <input type="email" th:field="*{email}" class="form-control" required>
                         </div>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label class="form-label">Correo Electrónico <span class="required">*</span></label>
-                    <input type="email" class="form-control" id="email" required>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Especialidad <span class="required">*</span></label>
+                            <input type="text" th:field="*{especialidad}" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label">Años de experiencia</label>
+                            <input type="number" th:field="*{anosExperiencia}" class="form-control" min="0" max="50">
+                        </div>
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <label class="form-label">Teléfono <span class="required">*</span></label>
-                    <input type="tel" class="form-control" id="phone" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Edad <span class="required">*</span></label>
-                    <input type="number" class="form-control" id="age" min="18" max="70" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Años de experiencia como instructor <span class="required">*</span></label>
-                    <input type="number" class="form-control" id="experience" min="0" max="40" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Especialidad</label>
-                    <select class="form-control" id="specialty">
-                        <option value="artistico">Patinaje Artístico</option>
-                        <option value="velocidad">Patinaje de Velocidad</option>
-                        <option value="freestyle">Freestyle / Slalom</option>
-                        <option value="hockey">Hockey sobre Ruedas</option>
-                        <option value="hockey">Patinaje sobre hielo</option>
-                        <option value="recreativo">Clases Recreativas</option>
-                        
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Certificaciones o títulos relevantes</label>
-                    <textarea class="form-control" id="certifications" rows="3" placeholder="Ej: Instructor Nivel 2, Curso de Primeros Auxilios, etc."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Disponibilidad horaria</label>
-                    <textarea class="form-control" id="availability" rows="2" placeholder="Ej: Lunes a viernes de 16:00 a 20:00"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label">Notas adicionales</label>
-                    <textarea class="form-control" id="notes" rows="3" placeholder="Motivación, metodología, etc."></textarea>
-                </div>
-
-                <button type="submit" class="btn-submit">Enviar Solicitud</button>
+                <button type="submit" class="btn-submit">Guardar Instructor</button>
             </form>
         </div>
     </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Validación básica del formulario -->
-    <script>
-        document.getElementById('instructorForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('¡Solicitud enviada exitosamente! Nuestro equipo se contactará contigo pronto.');
-            this.reset();
-        });
-    </script>
-
 </body>
-
 </html>
