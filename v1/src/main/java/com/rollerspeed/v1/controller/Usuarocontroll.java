@@ -15,6 +15,7 @@ public class Usuarocontroll {
     public String  listadoinstrutores (){
         return "home/listadoinstructores"; 
     }
+
     
     
 }

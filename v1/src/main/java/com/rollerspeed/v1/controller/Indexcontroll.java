@@ -3,6 +3,8 @@ package com.rollerspeed.v1.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
+
 @Controller
 @RequestMapping("/index")
 public class Indexcontroll {
@@ -24,6 +26,7 @@ public class Indexcontroll {
     public String estudiantes() {
         return "home/estudiantes";
     }
+    
     @RequestMapping("/instructores")
     public String instructores() {
         return "home/instructores";
